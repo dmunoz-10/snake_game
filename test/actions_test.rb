@@ -35,7 +35,7 @@ class ActionsTest < Minitest::Test
     )
 
     actual_state = Actions.move_snake(@initial_state)
-    assert_equal actual_state, expected_state
+    assert_equal expected_state, actual_state
   end
 
   def test_change_direction_invalid
@@ -52,7 +52,7 @@ class ActionsTest < Minitest::Test
     )
 
     actual_state = Actions.change_direction(@initial_state, Model::Direction::UP)
-    assert_equal actual_state, expected_state
+    assert_equal expected_state, actual_state
   end
 
   def test_change_direction_valid
@@ -70,7 +70,7 @@ class ActionsTest < Minitest::Test
 
     actual_state = Actions.change_direction(@initial_state,
                                             Model::Direction::RIGHT)
-    assert_equal actual_state, expected_state
+    assert_equal expected_state, actual_state
   end
 
   def test_grow_snake
@@ -93,7 +93,7 @@ class ActionsTest < Minitest::Test
     ]
 
     actual_state = Actions.move_snake(initial_state)
-    assert_equal actual_state.snake.positions, expected_state
+    assert_equal expected_state, actual_state.snake.positions
   end
 
   def test_generate_food
@@ -118,13 +118,13 @@ class ActionsTest < Minitest::Test
       Model::Food.new(0, 0),
       Model::Grid.new(12, 12),
       Model::Direction::DOWN,
-      0.497,
+      0.496,
       false
     )
 
     Actions.stub(:rand, 0) do
       actual_state = Actions.move_snake(initial_state)
-      assert_equal actual_state, expected_state
+      assert_equal expected_state, actual_state
     end
   end
 end
