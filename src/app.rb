@@ -23,7 +23,7 @@ class App
       next if @pause
 
       if @state.game_finished
-        puts 'End Game'
+        puts 'Game over'
         puts "Score: #{@state.snake.positions.size}"
         break
       end
